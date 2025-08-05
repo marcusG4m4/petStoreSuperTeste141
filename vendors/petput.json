@@ -1,0 +1,16 @@
+{
+    "id": 960107902,
+    "category": {
+        "id": 1,
+        "name": "dog"
+    },
+    "name": "Juju",
+    "photoUrls": [],
+    "tags": [
+        {
+            "id": 1,
+            "name": "vacinado"
+        }
+    ],
+    "status": "sold"
+}

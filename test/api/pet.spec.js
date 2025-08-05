@@ -28,15 +28,37 @@ describe('API petStore Swagger - Entidade Pet', () => {
 
 
      }); // final do metodo post
+     
+     //metodo get
+it('GET Pet', async() => {
+     return await request
+          .get(`/pet/${petId}`)
+          .then((res) => {
+               expect(res.statusCode).toBe(200)
+               expect(res.body.id).toBe(petId)
+               expect(res.body.status).toBe('available')
+          })
+}); // final do metodo get
 
-     it('GET Pet', async() => {
-          return await request
-               .get(`/pet/${petId}`)
-               .then((res) => {
-                    expect(res.statusCode).toBe(200)
-                    expect(res.body.id).toBe(petId)
-                    expect(res.body.status).toBe('available')
-               })
-     })// Funçoes e metodos 
+//metodo put
+it('PUT Pet', async() => {
+     const petPut = await require('../../vendors/petput.json')
+     return await request
+          .put(`/pet/`)
+          .send(petPut)
+          .then((res) => {
+               expect(res.statusCode).toBe(200)
+               expect(res.body.status).toBe('sold')
+          })
+}); // final do metodo put
 
+//metodo delete
+it('DELETE Pet', async() => {
+     return await request
+          .delete(`/pet/${petId}`)
+          .then((res) => {
+               expect(res.statusCode).toBe(200)
+               expect(res.body.message).toBe(petId.toString())
+          })
+}); 
 })
